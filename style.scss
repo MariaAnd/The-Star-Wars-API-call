@@ -1,0 +1,268 @@
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@font-face {
+  font-family: 'Star Jedi Hollow';
+  src: url('fonts/StarJediHollow.woff2') format('woff2'),
+  url('fonts/StarJediHollow.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+$main-font: Roboto, sans-serif;
+$heading-font: 'Star Jedi Hollow';
+$background-color: #000;
+$border-color: #FBC300;
+$font-color: #fff;
+$hover-color: #FDF253;
+
+%heading-shared {
+  color: $border-color;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  font-family: $heading-font;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+}
+
+%wrapper-shared {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+%a-shared {
+  color: $border-color;
+  text-decoration: none;
+  transition: all 0.5s linear;
+  &:hover {
+    font-size: 1.2rem;
+    color: $hover-color;
+  }
+}
+
+html {
+  font-size: 18px;
+  color: $font-color;
+  background: $background-color;
+  font-family: $main-font;
+  // 768px window width and more
+  @include md {
+    font-size: 16px;
+  }
+  header {
+    border-bottom: 3px solid $border-color;
+    .wrapper {
+      @extend %wrapper-shared;
+      position: relative;
+      img {
+        display: none;
+        // 768px window width and more
+        @include md {
+          display: block;
+          height: 2rem;
+          margin: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        @extend %heading-shared;
+        // 768px window width and more
+        @include md {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  main {
+    margin-bottom: 30px;
+    .wrapper {
+      @extend %wrapper-shared;
+      #root {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        .animation {
+          box-sizing: border-box;
+          width: 100%;
+          height: 250px;
+          margin: 30px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background: url('images/stars-carousel.jpg');
+          float: left;
+          align-self: center;
+          // 768px window width and more
+          @include md {
+            width: 66.6%;
+            height: 400px;
+            margin: 50px 0;
+          }
+          // 992px window width and more
+          @include lg {
+            width: 50%;
+            height: 400px;
+            margin: 50px 0;
+          }
+          img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            animation: scale 5s ease-out infinite;
+          }
+          .text-line {
+            text-transform: uppercase;
+            font-size: 0;
+            font-family: $main-font;
+            animation: fontsize 5s ease-out infinite;
+            text-align: center;
+            letter-spacing: 3px;
+          }
+        }
+        .container {
+          margin: 10px;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 5px;
+          // 768px window width and more
+          @include md {
+            width: calc(33.3% - 20px);
+          }
+          // 992px window width and more
+          @include lg {
+            width: calc(25% - 20px);
+          }
+          h2 {
+            @extend %heading-shared;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            // 768px window width and more
+            @include md {
+              font-size: 1.5rem;
+            }
+          }
+          p {
+            line-height: 1.2rem;
+            margin: 5px 0;
+            span {
+              color: $border-color;
+            }
+            a {
+              @extend %a-shared
+            }
+
+          }
+          .character-image {
+            width: 100%;
+            margin: 10px 0;
+          }
+        }
+      }
+
+    }
+  }
+  footer {
+    border-top: 3px solid $border-color;
+    .wrapper {
+      @extend %wrapper-shared;
+      padding: 30px 0;
+      p {
+        text-align: center;
+        a {
+          @extend %a-shared;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    width: 100%;
+  }
+  70% {
+    width: 80%;
+  }
+  85% {
+    width: 80%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fontsize {
+  0% {
+    font-size: 0;
+    margin: 0;
+  }
+  20% {
+    font-size: 0;
+    opacity: 0;
+  }
+  70% {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 1;
+  }
+  85% {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 1;
+  }
+  100% {
+    font-size: 0;
+    margin: 0;
+    opacity: 0;
+  }
+}
+

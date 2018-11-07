@@ -1,0 +1,210 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@font-face {
+  font-family: "Star Jedi Hollow";
+  src: url("fonts/StarJediHollow.woff2") format("woff2"), url("fonts/StarJediHollow.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+html main .wrapper #root .container h2, html header .wrapper h1 {
+  color: #FBC300;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  font-family: "Star Jedi Hollow";
+  letter-spacing: 3px;
+  text-transform: lowercase;
+}
+
+html footer .wrapper, html main .wrapper, html header .wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+html footer .wrapper p a, html main .wrapper #root .container p a {
+  color: #FBC300;
+  text-decoration: none;
+  transition: all 0.5s linear;
+}
+html footer .wrapper p a:hover, html main .wrapper #root .container p a:hover {
+  font-size: 1.2rem;
+  color: #FDF253;
+}
+
+html {
+  font-size: 18px;
+  color: #fff;
+  background: #000;
+  font-family: Roboto, sans-serif;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+html header {
+  border-bottom: 3px solid #FBC300;
+}
+html header .wrapper {
+  position: relative;
+}
+html header .wrapper img {
+  display: none;
+}
+@media (min-width: 768px) {
+  html header .wrapper img {
+    display: block;
+    height: 2rem;
+    margin: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+html header .wrapper h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@media (min-width: 768px) {
+  html header .wrapper h1 {
+    font-size: 2rem;
+  }
+}
+html main {
+  margin-bottom: 30px;
+}
+html main .wrapper #root {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+html main .wrapper #root .animation {
+  box-sizing: border-box;
+  width: 100%;
+  height: 250px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("images/stars-carousel.jpg");
+  float: left;
+  align-self: center;
+}
+@media (min-width: 768px) {
+  html main .wrapper #root .animation {
+    width: 66.6%;
+    height: 400px;
+    margin: 50px 0;
+  }
+}
+@media (min-width: 992px) {
+  html main .wrapper #root .animation {
+    width: 50%;
+    height: 400px;
+    margin: 50px 0;
+  }
+}
+html main .wrapper #root .animation img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  animation: scale 5s ease-out infinite;
+}
+html main .wrapper #root .animation .text-line {
+  text-transform: uppercase;
+  font-size: 0;
+  font-family: Roboto, sans-serif;
+  animation: fontsize 5s ease-out infinite;
+  text-align: center;
+  letter-spacing: 3px;
+}
+html main .wrapper #root .container {
+  margin: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+}
+@media (min-width: 768px) {
+  html main .wrapper #root .container {
+    width: calc(33.3% - 20px);
+  }
+}
+@media (min-width: 992px) {
+  html main .wrapper #root .container {
+    width: calc(25% - 20px);
+  }
+}
+html main .wrapper #root .container h2 {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+@media (min-width: 768px) {
+  html main .wrapper #root .container h2 {
+    font-size: 1.5rem;
+  }
+}
+html main .wrapper #root .container p {
+  line-height: 1.2rem;
+  margin: 5px 0;
+}
+html main .wrapper #root .container p span {
+  color: #FBC300;
+}
+html main .wrapper #root .container .character-image {
+  width: 100%;
+  margin: 10px 0;
+}
+html footer {
+  border-top: 3px solid #FBC300;
+}
+html footer .wrapper {
+  padding: 30px 0;
+}
+html footer .wrapper p {
+  text-align: center;
+}
+@keyframes scale {
+  0% {
+    width: 100%;
+  }
+  70% {
+    width: 80%;
+  }
+  85% {
+    width: 80%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes fontsize {
+  0% {
+    font-size: 0;
+    margin: 0;
+  }
+  20% {
+    font-size: 0;
+    opacity: 0;
+  }
+  70% {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 1;
+  }
+  85% {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 1;
+  }
+  100% {
+    font-size: 0;
+    margin: 0;
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
